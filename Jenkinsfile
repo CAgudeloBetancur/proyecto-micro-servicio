@@ -13,7 +13,7 @@ pipeline {
                     withCredentials([
                         string(credentialsId: 'MONGO_URI', variable: 'MONGO_URI')
                     ]) {
-                        docker.build('camilo97/api-escalamiento-micro-servicio:v1', '--build-arg MONGO_URI=${MONGO_URI} ./proyecto-micro')
+                        docker.build('camilo97/proyecto-micro-servicio:v1', '--build-arg MONGO_URI=${MONGO_URI} ./proyecto-micro')
                     }
                 }
             }

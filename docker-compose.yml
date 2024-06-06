@@ -1,0 +1,29 @@
+version: '3.8'
+services: 
+  proyecto-micro-servicio: 
+    image: camilo97/proyecto-micro-servicio:v1
+    build: 
+      context: ./proyecto-micro
+    ports:
+      - "4004-4019:5510"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - PORT=5510
+    deploy:
+      mode: replicated
+      replicas: 3
+    networks:
+      - proyecto-micro-servicio-net
+
+  balanceador-proyecto-micro-servicio:
+    container_name: balanceador-proyecto-micro-servicio
+    image: camilo97/balanceador-proyecto-micro-servicio:v1
+    build:
+      context: ./balanceador
+    ports:
+      - "4020:80"
+    networks:
+      - proyecto-micro-servicio-net
+
+networks:
+  proyecto-micro-servicio-net:
