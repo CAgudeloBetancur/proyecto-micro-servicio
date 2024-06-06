@@ -1,11 +1,14 @@
 version: '3.8'
 services: 
   api-escalamiento-proyecto-servicio: 
-    image: laurabm/api-escalamiento-micro-servicio:v1
+    image: camilo97/api-escalamiento-micro-servicio:v1
     build: 
       context: .
     ports:
-      - "4011-4019:5510"
+      - "4004-4019:5510"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - PORT=5510
     deploy:
       mode: replicated
       replicas: 3
@@ -14,7 +17,7 @@ services:
 
   balanceador-api-escalamiento-proyecto-servicio:
     container_name: balanceador-api-escalamiento-proyecto-servicio
-    image: laurabm/balanceador:v1
+    image: camilo97/balanceador:v1
     build:
       context: ./../balanceador
     ports:
