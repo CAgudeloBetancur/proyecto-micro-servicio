@@ -1,0 +1,8 @@
+balanceador/
+
+.git
+.gitignore
+
+logs/
+
+node_modules/
