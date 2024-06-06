@@ -5,7 +5,9 @@ services:
     build: 
       context: ./proyecto-micro
     ports:
-      - "4004-4019:5510"
+      - "4012:5510"
+      - "4013:5510"
+      - "4014:5510"
     environment:
       - MONGO_URI=${MONGO_URI}
       - PORT=5510
