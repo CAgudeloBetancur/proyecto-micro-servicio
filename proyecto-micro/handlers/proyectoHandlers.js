@@ -22,7 +22,7 @@ export const listarProyectoHandler = async (req,res) => {
 }
 
 export const editarProyectoHandler = async(req,res) => {
-    console.log('Console log desde el handler para editar un proyecto');
+    console.log('Saludos desde el handler para editar proyectos');
     try {
         console.log(req.params);
         const {id} = req.params;
