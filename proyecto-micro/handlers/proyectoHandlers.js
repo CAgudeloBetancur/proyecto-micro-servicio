@@ -11,6 +11,7 @@ export const crearProyectoHandler = async (req,res) => {
 }
 
 export const listarProyectoHandler = async (req,res) => {
+    console.log("Estas visitando el handler para listar proyectos");
     try{
         const proyecto = await listarProyecto();
         return res.status(200).json(proyecto);
